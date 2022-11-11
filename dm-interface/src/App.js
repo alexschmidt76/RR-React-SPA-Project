@@ -1,12 +1,13 @@
 import './App.css';
 import TitleBar from './components/TitleBar';
+import Initiatives from './components/Initiatives';
 
 function App() {
   return (
     <div className="App">
       <TitleBar />
-      {/* <Initiatives />
-      <EnemyHealth />
+      <Initiatives />
+      {/*<EnemyHealth />
       <EnemyStats />
       <NpcStats /> */}
     </div>
