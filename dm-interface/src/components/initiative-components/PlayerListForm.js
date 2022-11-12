@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { useState } from "react"
+import { Button, Form } from "react-bootstrap"
 
 export default function PlayerListForm(props) {
-    let [ input, setInput ] = useState('');
+    let [ input, setInput ] = useState('')
 
     const handleSubmit = (e) => {
         let player = {
@@ -21,5 +21,5 @@ export default function PlayerListForm(props) {
                 onChange={(e) => setInput(e.target.value)} />
             <Button variant="primary" type="submit">Add Character</Button>
         </Form>
-    );
+    )
 }

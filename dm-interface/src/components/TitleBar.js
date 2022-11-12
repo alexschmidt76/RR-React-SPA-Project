@@ -1,5 +1,5 @@
-import { Container, Navbar } from 'react-bootstrap';
-import dndLogo from '../dnd-logo.png';
+import { Container, Navbar } from 'react-bootstrap'
+import dndLogo from '../dnd-logo.png'
 
 export default function TitleBar() {
   return (
@@ -18,5 +18,5 @@ export default function TitleBar() {
             </Navbar.Brand>
         </Container>
     </Navbar>
-  );
+  )
 }

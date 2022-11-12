@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import PlayerListForm from "./PlayerListForm";
+import React, { useState } from "react"
+import { Button, Form } from "react-bootstrap"
+import PlayerListForm from "./PlayerListForm"
 
 export default function Initiatives() {
-    let [ playerList, setPlayerList ] = useState([]);
+    let [ playerList, setPlayerList ] = useState([])
 
     const addToPlayerList = (e, newPlayer) => {
         e.preventDefault();
@@ -15,15 +15,17 @@ export default function Initiatives() {
     }
 
     const updateRoll = (i) => (e) => {
-        let newArr = [...playerList];
-        newArr[i].roll = Number(e.target.value);
-        setPlayerList(newArr);
+        let newArr = [...playerList]
+        newArr[i].roll = Number(e.target.value)
+        setPlayerList(newArr)
     }
 
-    const reorderPlayerList = () => {
-        let newArr = [...playerList];
-        newArr.sort((a, b) => a.roll > b.roll ? -1 : 1);
-        setPlayerList(newArr);
+    const reorderPlayerList = (e) => {
+        e.preventDefault()
+        let tempList = [...playerList]
+        tempList.sort((a, b) => a.roll > b.roll ? -1 : 1)
+        setPlayerList(tempList)
+        console.log(playerList)
     }
 
     return (
@@ -42,7 +44,7 @@ export default function Initiatives() {
                 }
                 {
                     playerList.length > 1 ?
-                    <Button type="submit" variant="primary">Organize List</Button> : {}
+                    <Button type="submit" variant="primary">Organize List</Button> : ''
                 }
             </Form>
         </div>

@@ -1,6 +1,6 @@
-import './App.css';
-import TitleBar from './components/TitleBar';
-import Initiatives from './components/Initiatives';
+import './App.css'
+import TitleBar from './components/TitleBar'
+import Initiatives from './components/initiative-components/Initiatives'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <EnemyStats />
       <NpcStats /> */}
     </div>
-  );
+  )
 }
 
 export default App;
