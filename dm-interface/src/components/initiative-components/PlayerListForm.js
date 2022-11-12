@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Button, Col, Container, Form, Row } from "react-bootstrap"
 
 export default function PlayerListForm(props) {
     let [ input, setInput ] = useState('')
@@ -14,12 +14,20 @@ export default function PlayerListForm(props) {
 
     return (
         <Form onSubmit={(e) => handleSubmit(e)}>
-            <Form.Control 
-                required
-                type="text" 
-                placeholder="Enter Charcter Name" 
-                onChange={(e) => setInput(e.target.value)} />
-            <Button variant="primary" type="submit">Add Character</Button>
+            <Container>
+                <Row>
+                    <Col sm={8}>
+                        <Form.Control 
+                            required
+                            type="text" 
+                            placeholder="Enter Charcter Name" 
+                            onChange={(e) => setInput(e.target.value)} />
+                    </Col>
+                    <Col sm={4}>
+                        <Button variant="primary" type="submit">Add Name</Button>
+                    </Col>
+                </Row>
+            </Container>
         </Form>
     )
 }
