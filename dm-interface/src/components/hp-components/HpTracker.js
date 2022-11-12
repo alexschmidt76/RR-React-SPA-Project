@@ -15,6 +15,7 @@ export default function HpTracker() {
     
     return (
         <div>
+            <h1>HP Tracker</h1>
             <NpcListForm addToNpcList={addToNpcList} />
             
         </div>
