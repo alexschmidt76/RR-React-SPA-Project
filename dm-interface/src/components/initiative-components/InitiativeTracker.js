@@ -17,6 +17,13 @@ export default function InitiativeTracker() {
             roll: 4
         }
     ])
+    /* 
+        playerList is an array of player objects
+        player = {
+            name: String,
+            rolll: Number
+        }
+    */
 
     const addToPlayerList = (e, newPlayer) => {
         e.preventDefault()
@@ -29,9 +36,7 @@ export default function InitiativeTracker() {
 
     const removeFromPlayerList = (i) => {
         let newArr = [...playerList];
-        console.log(newArr)
-        newArr.splice(i,1)
-        console.log(newArr)
+        newArr.splice(i, 1)
         setPlayerList(newArr)
     }
 

@@ -8,7 +8,9 @@ export default function NpcListForm(props) {
     const handleSubmit = (e) => {
         let npc = {
             name: nameInput,
-            hp: hpInput
+            hp: hpInput,
+            maxHp: hpInput,
+            hpChange: 1
         }
         props.addToNpcList(e, npc);
     }
