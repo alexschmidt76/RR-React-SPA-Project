@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import { Button, CloseButton, Col, Container, Form, Row } from "react-bootstrap"
 import PlayerListForm from "./PlayerListForm"
 
 export default function InitiativeTracker() {
@@ -27,6 +27,14 @@ export default function InitiativeTracker() {
         ])
     }
 
+    const removeFromPlayerList = (i) => {
+        let newArr = [...playerList];
+        console.log(newArr)
+        newArr.splice(i,1)
+        console.log(newArr)
+        setPlayerList(newArr)
+    }
+
     const updateRoll = (i) => (e) => {
         let newArr = [...playerList]
         newArr[i].roll = Number(e.target.value)
@@ -35,10 +43,9 @@ export default function InitiativeTracker() {
 
     const reorderPlayerList = (e) => {
         e.preventDefault()
-        let tempList = [...playerList]
-        tempList.sort((a, b) => a.roll > b.roll ? -1 : 1)
-        setPlayerList(tempList)
-        console.log(playerList)
+        let newArr = [...playerList]
+        newArr.sort((a, b) => a.roll > b.roll ? -1 : 1)
+        setPlayerList(newArr)
     }
 
     return (
@@ -58,10 +65,14 @@ export default function InitiativeTracker() {
                 {
                     playerList.map((player, i) => {
                         return(
+                            <div key={i}>
                             <Form.Group>
                                 <Container>
                                     <Row>
-                                        <Col sm={8}>
+                                        <Col sm={1}>
+                                            <CloseButton onClick={(i) => removeFromPlayerList(i)} />
+                                        </Col>
+                                        <Col sm={7}>
                                             <h3>
                                                 {`${i+1}. ${player.name}`}
                                             </h3>
@@ -72,6 +83,7 @@ export default function InitiativeTracker() {
                                     </Row>
                                 </Container>
                             </Form.Group>
+                            </div>
                         )
                     })
                 }

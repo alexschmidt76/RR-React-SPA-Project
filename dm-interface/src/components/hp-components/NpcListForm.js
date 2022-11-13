@@ -1,25 +1,42 @@
 import { useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Button, Col, Container, Form, Row } from "react-bootstrap"
 
 export default function NpcListForm(props) {
-    let [ input, setInput ] = useState('')
+    let [ nameInput, setNameInput ] = useState('')
+    let [ hpInput, setHpInput ] = useState(0)
 
     const handleSubmit = (e) => {
-        let player = {
-            name: input,
-            roll: 0
+        let npc = {
+            name: nameInput,
+            hp: hpInput
         }
-        props.addToNpcList(e, player);
+        props.addToNpcList(e, npc);
     }
 
     return (
         <Form onSubmit={(e) => handleSubmit(e)}>
-            <Form.Control 
-                required
-                type="text" 
-                placeholder="Enter Npc Name" 
-                onChange={(e) => setInput(e.target.value)} />
-            <Button variant="primary" type="submit">Add Npc</Button>
+            <Container>
+                <Row>
+                    <Col sm={4}>
+                        <Form.Control 
+                            required
+                            type="text" 
+                            placeholder="Enter Name" 
+                            onChange={(e) => setNameInput(e.target.value)} />
+
+                    </Col>
+                    <Col sm={4}>
+                        <Form.Control
+                            required
+                            type="number"
+                            placeholder="Max HP"
+                            onChange={(e) => setHpInput(e.target.value)} />
+                    </Col>
+                    <Col sm={4}>
+                        <Button variant="primary" type="submit">Add Npc</Button>
+                    </Col>
+                </Row>
+            </Container>
         </Form>
     )
 }

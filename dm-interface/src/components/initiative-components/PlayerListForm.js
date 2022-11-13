@@ -20,7 +20,7 @@ export default function PlayerListForm(props) {
                         <Form.Control 
                             required
                             type="text" 
-                            placeholder="Enter Charcter Name" 
+                            placeholder="Enter Name" 
                             onChange={(e) => setInput(e.target.value)} />
                     </Col>
                     <Col sm={4}>
